@@ -23,7 +23,7 @@ export class EmployeeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.viewStyle = this._utilityService.getItem('viewStyle')
+    this.viewStyle = this._utilityService.getItem('viewStyle') ? this._utilityService.getItem('viewStyle') : 'grid'
     this._utilityService.isLoggedIn.subscribe((val) => {
       this.isLoggedIn = val
     })
