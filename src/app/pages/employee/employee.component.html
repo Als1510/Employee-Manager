@@ -2,7 +2,7 @@
   <div class="d-flex flex-row justify-content-end align-items-center">
     <mat-icon class="mx-2 pointer" [class.selected_style]="viewStyle == 'grid'" (click)="changeStyle('grid')">view_module</mat-icon>
     <mat-icon class="mx-2 pointer" [class.selected_style]="viewStyle == 'list'" (click)="changeStyle('list')">view_list</mat-icon>
-    <button class="btn btn-primary align-self-end d-flex align-items-center" (click)="addEmployee()">
+    <button class="btn btn-primary align-self-end d-flex align-items-center" (click)="addEmployee()" [disabled]="!isLoggedIn">
       <mat-icon>add</mat-icon> New Employee
     </button>
   </div>
