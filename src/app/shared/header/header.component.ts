@@ -41,6 +41,10 @@ export class HeaderComponent {
   }
 
   search() {
-    this._utilityService.updateValue(this.searchText)
+    if(/[^\w\s]/.test(this.searchText)) {
+      this._router.navigate(['/error'])
+    } else {
+      this._utilityService.updateValue(this.searchText)
+    }
   }
 }
