@@ -1,0 +1,22 @@
+<div class="d-flex flex-row justify-content-between header" (window:resize)="onResize($event)">
+  <img src="../../../assets/logo.jfif" alt="">
+  <div class="d-flex flex-column">
+    <div class="d-flex flex-row align-items-center">
+      <input type="text" placeholder="Search" class="my-1 mx-2" [(ngModel)]="searchText" (ngModelChange)="search()">
+      <mat-icon class="mx-2 white" *ngIf="isLoggedIn" (click)="logout()">input</mat-icon>
+    </div>
+    <div class="desktop my-2">
+      <a routerLink="/employee" class="m-2">Employee</a>
+      <a routerLink="/login" class="m-2">Login</a>
+    </div>
+    <div class="hamburger my-1 mx-2" [ngClass]="{'active': isCollapsed}" (click)="mobileMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <div class="d-flex flex-column justify-content-start mobile" [ngClass]="{'hidden': !isCollapsed}">
+      <a routerLink="/employee" class="m-1">Employee</a>
+      <a routerLink="/login" class="m-1">Login</a>
+    </div>
+  </div>
+</div>

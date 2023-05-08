@@ -1,0 +1,44 @@
+<mat-card class="mt-4 card p-0">
+  <mat-table #matTable [dataSource]="dataSource" *ngIf="employees.length != 0; else no_data">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <img src="../../../../assets/employee.jpg" alt="" class="user_image">
+        <span class="mx-2">
+          {{ item.name }}
+        </span>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef>Position</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        {{ item.position }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="about">
+      <mat-header-cell *matHeaderCellDef>About</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        {{ item.about }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef>Joining Date</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        {{ item.joining_date}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <mat-icon class="mx-2 pointer" (click)="edit(item)">create</mat-icon>
+        <mat-icon class="mx-2 pointer" (click)="delete(item)">delete</mat-icon>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-paginator *ngIf="dataSource?.data.length > 5" [pageSize]="10" [length]="dataSource.data.length" [pageSizeOptions]="[10, 20, 30, 40, 50]"></mat-paginator>
+  <ng-template #no_data>
+    <span class="heading-1 gray-1 text-center my-4">No Records Found</span>
+  </ng-template>
+</mat-card>

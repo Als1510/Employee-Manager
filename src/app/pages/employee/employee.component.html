@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <div class="d-flex flex-row justify-content-end align-items-center">
+    <mat-icon class="mx-2 pointer" [class.selected_style]="viewStyle == 'grid'" (click)="changeStyle('grid')">view_module</mat-icon>
+    <mat-icon class="mx-2 pointer" [class.selected_style]="viewStyle == 'list'" (click)="changeStyle('list')">view_list</mat-icon>
+    <button class="btn btn-primary align-self-end d-flex align-items-center" (click)="addEmployee()">
+      <mat-icon>add</mat-icon> New Employee
+    </button>
+  </div>
+
+  <div >
+    <app-grid-view *ngIf="viewStyle == 'grid'" [employees]="employees" (deleteEmployee)="deleteEmployee($event)" (editEmployee)="editEmployee($event)"></app-grid-view>
+    <app-list-view *ngIf="viewStyle == 'list'" [employees]="employees" (deleteEmployee)="deleteEmployee($event)" (editEmployee)="editEmployee($event)"></app-list-view>
+  </div>
+</div>

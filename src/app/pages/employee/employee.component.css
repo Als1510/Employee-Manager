@@ -1,0 +1,10 @@
+.container{
+  height: auto;
+  padding-bottom: 50px;
+  overflow: visible;
+}
+
+.selected_style{
+  border: 1px solid blue;
+  border-radius: 4px;
+}

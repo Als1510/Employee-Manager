@@ -1,0 +1,33 @@
+<div class="d-flex flex-wrap justify-content-around mt-4">
+  <ng-container *ngIf="employees.length != 0; else no_data">
+
+  </ng-container>
+  <mat-card *ngFor="let employee of employees" class="m-2 employee_card p-3">
+    <mat-card-title class="d-flex flex-row">
+      <img src="../../../../assets/employee.jpg" alt="" class="user_image">
+      <div class="d-flex flex-column mx-2">
+        <span class="mb-1 heading-4 gray-1">{{employee.name}}</span>
+        <span class="heading-6 gray-2">{{employee.position}}</span>
+      </div>
+      <span [matMenuTriggerFor]="menu" class="gray-1 menu">
+        <mat-icon>more_vert</mat-icon>
+      </span>
+      <mat-menu #menu="matMenu" class="background">
+        <button mat-menu-item (click)="edit(employee)">
+          <span class="gray-1">Edit</span>
+        </button>
+        <button mat-menu-item (click)="delete(employee)">
+          <span class="gray-1">Delete</span>
+        </button>
+      </mat-menu>
+    </mat-card-title>
+    <mat-card-content class="d-flex flex-column">
+      <span class="my-2 heading-7 gray-2">{{employee.about}}</span>
+      <span class="pink">JOINING DATE: <span class="gray-2">{{employee.joining_date}}</span></span>
+    </mat-card-content>
+  </mat-card>
+
+  <ng-template #no_data>
+    <span class="heading-1 gray-1">No Records Found</span>
+  </ng-template>
+</div>

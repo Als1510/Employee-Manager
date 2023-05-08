@@ -1,0 +1,18 @@
+.employee_card{
+  width: 250px;
+  padding: 0.5rem !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: #fff;
+}
+
+.user_image{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.menu{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}

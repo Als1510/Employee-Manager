@@ -1,0 +1,14 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="onSubmit()">
+    <span class="heading-2 gray-1">Login</span>
+    <div class="form-group mt-2">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Login</button>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+<div class="container d-flex flex-column align-items-center justify-content-center">
+  <span mat-dialog-title class="heading-2 gray-1">Add New Employee</span>
+  <div class="container d-flex justify-content-center align-items-center" mat-dialog-content>
+    <form [formGroup]="employeeForm" class="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group my-2">
+        <label for="name" class="heading-5 gray-1 mb-1">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name">
+      </div>
+      <div class="form-group my-2">
+        <label for="position" class="heading-5 gray-1 mb-1">Position</label>
+        <input type="text" class="form-control" id="position" placeholder="Position" formControlName="position">
+      </div>
+      
+      <div class="form-group my-2">
+        <label for="about" class="heading-5 gray-1 mb-1">About</label>
+        <input type="text" class="form-control" id="about" placeholder="About" formControlName="about">
+      </div>
+      
+      <div class="form-group my-2">
+        <label for="joining_date" class="heading-5 gray-1 mb-1">Joining Date</label>
+        <input type="date" class="form-control" id="joining_date" formControlName="joining_date">
+      </div>
+
+      <div class="d-flex flex-row justify-content-between mt-2">
+        <div *ngIf="id > 0; else newEmployee">
+          <button type="submit" class="btn btn-primary">Update Employee</button>
+        </div>
+    
+        <ng-template #newEmployee>
+          <button type="submit" class="btn btn-primary">Add Employee</button>
+        </ng-template>
+        <button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
